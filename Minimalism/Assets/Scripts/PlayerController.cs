@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public float maxHP;
     public float curHP;
+    public Image hpBar;
 
     public bool Unsheathed = false;
     private bool moving = false;
@@ -18,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bodyObject;
     public Animator sword;
     public LineRenderer line;
-
+   
     public GameObject innerRange;
     public InnerRange innerRangeController;
     private float maxInnerSize = 3f;
@@ -38,14 +40,20 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        curHP = maxHP;
         maxInnerSize = innerSize;
         innerRange.transform.localScale = new Vector3(innerSize, innerSize);
         outerRange.transform.localScale = new Vector3(outerSize, outerSize);
+        hpBar.fillAmount = (curHP / maxHP);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         if (Input.GetKeyDown(KeyCode.Space) && canRestart)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -167,6 +175,7 @@ public class PlayerController : MonoBehaviour
         {
             invincible = false;
         }
+        hpBar.fillAmount = (curHP/maxHP);
     }
 
     private void FixedUpdate()
