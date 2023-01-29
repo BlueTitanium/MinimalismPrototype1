@@ -32,7 +32,7 @@ public class RangeEnemy : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (!attack) {
+        if (!attack && !GameManager.gm.paused) {
             moveTowardsPlayer(movement);
         }
     }

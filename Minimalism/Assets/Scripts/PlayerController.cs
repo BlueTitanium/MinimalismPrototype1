@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool Unsheathed = false;
     private bool moving = false;
     private bool invincible = false;
+    private bool dead = false;
     private float timer = 0f;
 
     public Rigidbody2D body;
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public float rangeIncrement = 0.3f;
 
     private Vector3 startLine;
+    private bool canRestart = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,11 +46,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Space) && canRestart)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && !dead)
         {
             //unsheathe
             if (!Unsheathed)
@@ -56,12 +59,12 @@ public class PlayerController : MonoBehaviour
             }
             Unsheathed = true;
         }
-        else if(sword.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Sword_Unsheathed")
+        else if(sword.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Sword_Unsheathed" && !dead)
         {
             print("sheathing");
             sword.SetTrigger("Sheathe");
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && !dead)
         {
             //slice or put back
             if (enemyInOuterRange)
@@ -77,6 +80,7 @@ public class PlayerController : MonoBehaviour
                 }
                 sword.SetTrigger("Slash1");
                 IncreaseRange(rangeIncrement);
+
             }
             else if (projectileInInnerRange)
             {
@@ -98,12 +102,18 @@ public class PlayerController : MonoBehaviour
                     sword.SetTrigger("Defense");
                     IncreaseRange(rangeIncrement);
                 }
+                GameManager.gm.addScore(800);
+            }
+            else
+            {
+                //punish
+                DecreaseRange(rangeIncrement / 1.3f);
             }
             //put back
             Unsheathed = false;
         }
 
-        if (Unsheathed)
+        if (Unsheathed && !dead)
         {
             if (projectileInInnerRange)
             {
@@ -125,14 +135,15 @@ public class PlayerController : MonoBehaviour
                     sword.SetTrigger("Defense");
                     IncreaseRange(rangeIncrement);
                 }
+                GameManager.gm.addScore(250);
             }
             DecreaseRange(rangeDecrement * Time.deltaTime);
         } else
         {
             if(innerSize+(rangeDecrement * Time.deltaTime) < maxInnerSize)
             {
-                outerSize += rangeDecrement * Time.deltaTime;
                 innerSize += rangeDecrement * Time.deltaTime;
+                outerSize = innerSize;
                 innerRange.transform.localScale = new Vector3(innerSize, innerSize);
                 outerRange.transform.localScale = new Vector3(outerSize, outerSize);
             }
@@ -183,6 +194,7 @@ public class PlayerController : MonoBehaviour
         }
         moving = false;
         Destroy(pointObject);
+        GameManager.gm.addScore(1000);
     }
     public IEnumerator moveRangesToLocation(float delay, float time)
     {
@@ -213,13 +225,16 @@ public class PlayerController : MonoBehaviour
             curHP -= damage;
         if (curHP <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    public void Die()
+    public IEnumerator Die()
     {
-
+        dead = true;
+        GameManager.gm.uiAnim.SetTrigger("Death");
+        yield return new WaitForSeconds(.2f);
+        canRestart = true;
     }
 
     public void IncreaseRange(float amount)

@@ -190,8 +190,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2793307903
-  m_fontColor: {r: 1, g: 0.495283, b: 0.495283, a: 0.6509804}
+    rgba: 4283322060
+  m_fontColor: {r: 1, g: 0.495283, b: 0.495283, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -549,6 +549,63 @@ RectTransform:
   m_AnchoredPosition: {x: 119.5, y: -25.969002}
   m_SizeDelta: {x: 531.636, y: 125.312}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &310451730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.9116716
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.340056
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346076, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_Name
+      value: MeleeEnemy (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94b85116127be494a819afd91b60dc07, type: 3}
 --- !u!1 &393733944
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,8 +810,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2789031423
-  m_fontColor: {r: 1, g: 0.23921569, b: 0.23921569, a: 0.6509804}
+    rgba: 4283322060
+  m_fontColor: {r: 1, g: 0.23921569, b: 0.23921569, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1024,7 +1081,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4284901119
-  m_fontColor: {r: 1, g: 0.4009434, b: 0.4009434, a: 1}
+  m_fontColor: {r: 1, g: 0.4009434, b: 0.4009434, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1350,6 +1407,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543723281}
   m_CullTransparentMesh: 1
+--- !u!1001 &545385985
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1054713068157311028, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_Name
+      value: RangeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.571757
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.036913
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054713068157311032, guid: da3331436a267e4499acac3b25e15bce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da3331436a267e4499acac3b25e15bce, type: 3}
 --- !u!1 &547422345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &669442322
 GameObject:
@@ -1469,7 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3490566, g: 0.15641688, b: 0.19012886, a: 1}
+  m_Color: {r: 0.3490566, g: 0.15641688, b: 0.19012886, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1653,9 +1767,66 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.000061035156}
+  m_AnchoredPosition: {x: -0.00012207031, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0.19995117}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &984223054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346076, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_Name
+      value: MeleeEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94b85116127be494a819afd91b60dc07, type: 3}
 --- !u!1 &1020059817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,7 +1924,7 @@ RectTransform:
   - {fileID: 1170213925}
   - {fileID: 923108777}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1847,8 +2018,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2789031423
-  m_fontColor: {r: 1, g: 0.24056602, b: 0.24056602, a: 0.6509804}
+    rgba: 4283322060
+  m_fontColor: {r: 1, g: 0.24056602, b: 0.24056602, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2168,6 +2339,63 @@ RectTransform:
   m_AnchoredPosition: {x: 681, y: -383}
   m_SizeDelta: {x: 1920, y: 1079.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1244355191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.7672167
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.1084685
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346076, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_Name
+      value: MeleeEnemy (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94b85116127be494a819afd91b60dc07, type: 3}
 --- !u!1 &1252112058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,7 +2583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1981132, g: 0.04392132, b: 0.071380116, a: 0.7647059}
+  m_Color: {r: 0.1981132, g: 0.04392132, b: 0.071380116, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2584,7 +2812,7 @@ Transform:
   m_Children:
   - {fileID: 1981675679}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1550124484
 GameObject:
@@ -2616,7 +2844,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1550124486
 MonoBehaviour:
@@ -2999,7 +3227,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1809524701
 GameObject:
@@ -3207,8 +3435,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2793307903
-  m_fontColor: {r: 1, g: 0.49411765, b: 0.49411765, a: 0.6509804}
+    rgba: 4283322060
+  m_fontColor: {r: 1, g: 0.49411765, b: 0.49411765, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3275,6 +3503,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819912432}
   m_CullTransparentMesh: 1
+--- !u!1001 &1820703552
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.117091
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.2664971
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346066, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700290098529346076, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+      propertyPath: m_Name
+      value: MeleeEnemy (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94b85116127be494a819afd91b60dc07, type: 3}
 --- !u!1 &1840908336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,7 +3763,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4285032104
-  m_fontColor: {r: 0.6603774, g: 0.40183342, b: 0.407777, a: 1}
+  m_fontColor: {r: 0.6603774, g: 0.40183342, b: 0.407777, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

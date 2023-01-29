@@ -29,7 +29,8 @@ public class MeleeEnemy : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        moveTowardsPlayer(movement);
+        if(!GameManager.gm.paused)
+            moveTowardsPlayer(movement);
     }
 
     void moveTowardsPlayer(Vector2 dir) {
