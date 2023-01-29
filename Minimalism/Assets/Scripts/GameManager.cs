@@ -35,26 +35,42 @@ public class GameManager : MonoBehaviour
 
     public void addScore(int amount)
     {
+        amount /= 10;
         scoreNum += amount;
         SetScore();
+        StatsDisplayer.sd.showPoints(amount);
     }
 
     void SetScore()
     {
-        foreach(var v in score)
+        foreach (var v in score)
         {
-            v.text = ""+scoreNum;
+            v.text = "" + scoreNum;
+        }
+    }
+    public void SetWave()
+    {
+        foreach (var v in wave)
+        {
+            v.text = "" + waveNum;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(paused && Input.GetKeyDown(KeyCode.Space))
+        if (paused && Input.GetKeyDown(KeyCode.Space))
         {
-            paused = false;
+            StartCoroutine(unpause(.2f));
             startCam.Priority = 9;
             uiAnim.SetTrigger("Start");
         }
+    }
+
+    IEnumerator unpause(float t)
+    {
+        yield return new WaitForSeconds(t);
+        paused = false;
+        StartCoroutine(WaveManager.wm.startWave(1));
     }
 }

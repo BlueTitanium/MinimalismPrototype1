@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public bool Unsheathed = false;
     private bool moving = false;
     private bool invincible = false;
-    private bool dead = false;
+    public bool dead = false;
     private float timer = 0f;
 
     public Rigidbody2D body;
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public GameObject outerRange;
     public OuterRange outerRangeController;
     public float outerSize = 5f;
+    public float maxSize = 15f;
     public bool enemyInOuterRange = false;
     public float rangeDecrement = 0.01f;
     public float rangeIncrement = 0.3f;
@@ -71,28 +72,32 @@ public class PlayerController : MonoBehaviour
         {
             print("sheathing");
             sword.SetTrigger("Sheathe");
+            Unsheathed = false;
         }
-        if (Input.GetKeyUp(KeyCode.Space) && !dead)
+        if (Input.GetKeyUp(KeyCode.Space) && !dead && !GameManager.gm.paused)
         {
             //slice or put back
             if (enemyInOuterRange)
             {
                 //slice
-                timer = .3f;
-                var pos = outerRangeController.enemies[0].transform.position;
-                StartCoroutine(moveBodyToLocation(body.transform.position,pos,.3f, outerRangeController.enemies[0]));
-                outerRangeController.enemies.RemoveAt(0);
-                if (outerRangeController.enemies.Count == 0)
+                if (!moving)
                 {
-                    enemyInOuterRange = false;
+                    timer = .3f;
+                    var pos = outerRangeController.enemies[0].transform.position;
+                    StartCoroutine(moveBodyToLocation(body.transform.position, pos, .3f, outerRangeController.enemies[0]));
+                    outerRangeController.enemies.RemoveAt(0);
+                    if (outerRangeController.enemies.Count == 0)
+                    {
+                        enemyInOuterRange = false;
+                    }
+                    sword.SetTrigger("Slash1");
+                    IncreaseRange(rangeIncrement);
                 }
-                sword.SetTrigger("Slash1");
-                IncreaseRange(rangeIncrement);
-
             }
             else if (projectileInInnerRange)
             {
                 //deflect
+
                 timer = .2f;
                 var obj = innerRangeController.projectiles[0];
                 Vector3 targetPosition = obj.transform.position;
@@ -111,11 +116,13 @@ public class PlayerController : MonoBehaviour
                     IncreaseRange(rangeIncrement);
                 }
                 GameManager.gm.addScore(800);
+                StatsDisplayer.sd.showStatus("Parried");
             }
             else
             {
                 //punish
                 DecreaseRange(rangeIncrement / 1.3f);
+                StatsDisplayer.sd.showStatus("Whiffed");
             }
             //put back
             Unsheathed = false;
@@ -128,12 +135,12 @@ public class PlayerController : MonoBehaviour
                 //deflect
                 timer = .2f;
                 var obj = innerRangeController.projectiles[0];
-                Destroy(obj, .1f);
                 Vector3 targetPosition = obj.transform.position;
                 Vector3 dir = targetPosition - body.transform.position;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 body.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
                 innerRangeController.projectiles.RemoveAt(0);
+                Destroy(obj, .1f);
                 if (innerRangeController.projectiles.Count == 0)
                 {
                     projectileInInnerRange = false;
@@ -144,6 +151,7 @@ public class PlayerController : MonoBehaviour
                     IncreaseRange(rangeIncrement);
                 }
                 GameManager.gm.addScore(250);
+                StatsDisplayer.sd.showStatus("Blocked");
             }
             DecreaseRange(rangeDecrement * Time.deltaTime);
         } else
@@ -156,7 +164,6 @@ public class PlayerController : MonoBehaviour
                 outerRange.transform.localScale = new Vector3(outerSize, outerSize);
             }
         }
-
         ranges.transform.position = body.transform.position;
         if (moving)
         {
@@ -204,6 +211,7 @@ public class PlayerController : MonoBehaviour
         moving = false;
         Destroy(pointObject);
         GameManager.gm.addScore(1000);
+        StatsDisplayer.sd.showStatus("Sliced");
     }
     public IEnumerator moveRangesToLocation(float delay, float time)
     {
@@ -230,8 +238,12 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (!invincible)
+        if (!invincible && !dead)
+        {
             curHP -= damage;
+            GameManager.gm.addScore(-500);
+            StatsDisplayer.sd.showStatus("Damaged");
+        }
         if (curHP <= 0)
         {
             StartCoroutine(Die());
@@ -240,6 +252,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Die()
     {
+        GameManager.gm.paused = true;
         dead = true;
         GameManager.gm.uiAnim.SetTrigger("Death");
         yield return new WaitForSeconds(.2f);
@@ -254,6 +267,10 @@ public class PlayerController : MonoBehaviour
         } else
         {
             outerSize += amount;
+        }
+        if(outerSize > maxSize)
+        {
+            outerSize = maxSize;
         }
         innerRange.transform.localScale = new Vector3(innerSize, innerSize);
         outerRange.transform.localScale = new Vector3(outerSize, outerSize);

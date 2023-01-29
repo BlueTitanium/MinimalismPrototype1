@@ -330,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 3
   curHP: 3
+  hpBar: {fileID: 0}
   Unsheathed: 0
   body: {fileID: 8315861277947959929}
   bodyObject: {fileID: 8315861278255974757}

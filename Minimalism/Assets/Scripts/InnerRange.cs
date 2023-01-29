@@ -15,7 +15,14 @@ public class InnerRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(projectiles.Count > 0 && projectiles[0] == null)
+        {
+            projectiles.RemoveAt(0);
+        }
+        if(projectiles.Count == 0)
+        {
+            p.projectileInInnerRange = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
