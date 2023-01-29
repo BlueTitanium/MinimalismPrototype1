@@ -47,12 +47,17 @@ public class WaveManager : MonoBehaviour
             initializing = true;
             StatsDisplayer.sd.showWave("wave " + n);
             yield return new WaitForSeconds(1f);
-            for (int i = 0; i < numPerWave * n * n; i++)
+            for (int i = 0; i < numPerWave * n - 1; i++)
             {
-                Vector3 offset = Random.onUnitSphere * Random.Range(15, 30);
-                var position = p.body.transform.position + offset;
-                position = new Vector3(position.x, position.y, 0);
-                position = position.normalized * 20f;
+                // C#
+                // get a random direction (360°) in radians
+                float angle = Random.Range(0.0f, Mathf.PI * 2);
+
+                // create a vector with length 1.0
+                Vector3 position = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0);
+
+                // scale it to the desired length
+                position *= 20f;
                 if (i % 5 == 0)
                 {
                     // range

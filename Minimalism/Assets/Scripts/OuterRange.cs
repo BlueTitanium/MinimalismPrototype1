@@ -15,7 +15,14 @@ public class OuterRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (enemies.Count > 0 && enemies[0] == null)
+        {
+            enemies.RemoveAt(0);
+        }
+        if (enemies.Count == 0)
+        {
+            p.enemyInOuterRange = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

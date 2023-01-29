@@ -1605,7 +1605,7 @@ MonoBehaviour:
   pointPrefab: {fileID: 3489972306333219536, guid: c837783fc363c4d45a81085bdbde8ad5, type: 3}
   statusPrefab: {fileID: 3793447120197652877, guid: e7c844954632c1e4f91666a6098be69f, type: 3}
   wavePrefab: {fileID: 4521257727382119021, guid: 133f03f5a5896594a83d3dc0e14c01a2, type: 3}
-  showStatusLine: 0
+  showStatusLine: 1
 --- !u!1 &669442322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,7 +2483,7 @@ MonoBehaviour:
   numPerWave: 5
   enemiesLeft: []
   rangeEnemy: {fileID: 1054713068157311028, guid: da3331436a267e4499acac3b25e15bce, type: 3}
-  meleeEnemy: {fileID: 7700290098529346076, guid: 94b85116127be494a819afd91b60dc07, type: 3}
+  meleeEnemy: {fileID: 1054713068157311028, guid: da3331436a267e4499acac3b25e15bce, type: 3}
   p: {fileID: 1381829988}
 --- !u!1 &1252112058
 GameObject:
@@ -4730,6 +4730,10 @@ PrefabInstance:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 1521114211}
+    - target: {fileID: 8315861276516726245, guid: eb328a9572683bc4dbc20e7e4fd0e85b, type: 3}
+      propertyPath: maxSize
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8315861277007468786, guid: eb328a9572683bc4dbc20e7e4fd0e85b, type: 3}
       propertyPath: m_Name
       value: PlayerNecessities
@@ -4777,6 +4781,18 @@ PrefabInstance:
     - target: {fileID: 8315861277007468789, guid: eb328a9572683bc4dbc20e7e4fd0e85b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315861277764699465, guid: eb328a9572683bc4dbc20e7e4fd0e85b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315861277764699465, guid: eb328a9572683bc4dbc20e7e4fd0e85b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315861277764699465, guid: eb328a9572683bc4dbc20e7e4fd0e85b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb328a9572683bc4dbc20e7e4fd0e85b, type: 3}

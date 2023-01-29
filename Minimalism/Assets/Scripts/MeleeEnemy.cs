@@ -42,7 +42,7 @@ public class MeleeEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") )
         {
             //player.TakeDamage(10);
-            GameObject.FindObjectOfType<PlayerController>().TakeDamage(1f);
+            GameObject.FindObjectOfType<PlayerController>().TakeDamage(3f);
             print("bam");
             Destroy(gameObject);
         }
