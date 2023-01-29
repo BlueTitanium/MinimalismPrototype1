@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
                 //slice
                 if (!moving)
                 {
+                    CameraShake.cs.cameraShake(.3f, 3f);
                     timer = .3f;
                     var pos = outerRangeController.enemies[0].transform.position;
                     StartCoroutine(moveBodyToLocation(body.transform.position, pos, .3f, outerRangeController.enemies[0]));
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
             else if (projectileInInnerRange)
             {
                 //deflect
-
+                CameraShake.cs.cameraShake(.1f, 1.5f);
                 timer = .2f;
                 var obj = innerRangeController.projectiles[0];
                 Vector3 targetPosition = obj.transform.position;
@@ -132,6 +133,7 @@ public class PlayerController : MonoBehaviour
         {
             if (projectileInInnerRange)
             {
+                CameraShake.cs.cameraShake(.1f, 1.5f);
                 //deflect
                 timer = .2f;
                 var obj = innerRangeController.projectiles[0];
@@ -240,6 +242,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!invincible && !dead)
         {
+            CameraShake.cs.cameraShake(.1f, 2f);
             curHP -= damage;
             GameManager.gm.addScore(-500);
             StatsDisplayer.sd.showStatus("Damaged");
@@ -255,7 +258,7 @@ public class PlayerController : MonoBehaviour
         GameManager.gm.paused = true;
         dead = true;
         GameManager.gm.uiAnim.SetTrigger("Death");
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.5f);
         canRestart = true;
     }
 
