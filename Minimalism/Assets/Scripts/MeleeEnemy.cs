@@ -14,6 +14,7 @@ public class MeleeEnemy : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        player = GameObject.Find("PlayerNecessities/Player/GameObject/Body").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -40,7 +41,7 @@ public class MeleeEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") )
         {
             //player.TakeDamage(10);
-            GameObject.FindObjectOfType<PlayerController>().TakeDamage(10f);
+            GameObject.FindObjectOfType<PlayerController>().TakeDamage(1f);
             print("bam");
             Destroy(gameObject);
         }

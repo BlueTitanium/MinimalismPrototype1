@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public bool Unsheathed = false;
     private bool moving = false;
+    private bool invincible = false;
+    private float timer = 0f;
 
     public Rigidbody2D body;
     public GameObject bodyObject;
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             //unsheathe
             if (!Unsheathed)
@@ -53,11 +55,10 @@ public class PlayerController : MonoBehaviour
                 sword.SetTrigger("Unsheathe");
             }
             Unsheathed = true;
-
         }
         else if(sword.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Sword_Unsheathed")
         {
-            
+            print("sheathing");
             sword.SetTrigger("Sheathe");
         }
         if (Input.GetKeyUp(KeyCode.Space))
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
             if (enemyInOuterRange)
             {
                 //slice
+                timer = .3f;
                 var pos = outerRangeController.enemies[0].transform.position;
                 StartCoroutine(moveBodyToLocation(body.transform.position,pos,.3f, outerRangeController.enemies[0]));
                 outerRangeController.enemies.RemoveAt(0);
@@ -79,12 +81,14 @@ public class PlayerController : MonoBehaviour
             else if (projectileInInnerRange)
             {
                 //deflect
+                timer = .2f;
                 var obj = innerRangeController.projectiles[0];
                 Vector3 targetPosition = obj.transform.position;
                 Vector3 dir = targetPosition - body.transform.position;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                body.transform.rotation = Quaternion.AngleAxis(angle+90, Vector3.forward);
                 innerRangeController.projectiles.RemoveAt(0);
+                Destroy(obj, .1f);
                 if (innerRangeController.projectiles.Count == 0)
                 {
                     projectileInInnerRange = false;
@@ -96,7 +100,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
             //put back
-            sword.SetTrigger("Sheathe");
             Unsheathed = false;
         }
 
@@ -105,12 +108,13 @@ public class PlayerController : MonoBehaviour
             if (projectileInInnerRange)
             {
                 //deflect
+                timer = .2f;
                 var obj = innerRangeController.projectiles[0];
                 Destroy(obj, .1f);
                 Vector3 targetPosition = obj.transform.position;
                 Vector3 dir = targetPosition - body.transform.position;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                body.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
                 innerRangeController.projectiles.RemoveAt(0);
                 if (innerRangeController.projectiles.Count == 0)
                 {
@@ -144,6 +148,14 @@ public class PlayerController : MonoBehaviour
             line.SetPosition(0, startLine);
             line.SetPosition(1, startLine);
         }
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+            invincible = true;
+        } else
+        {
+            invincible = false;
+        }
     }
 
     private void FixedUpdate()
@@ -157,7 +169,7 @@ public class PlayerController : MonoBehaviour
         Vector3 dir = targetPosition - body.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         targetPosition += dir.normalized;
-        this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        body.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
         float elapsedTime = 0;
         startLine = start;
         line.SetPosition(0, start);
@@ -197,8 +209,9 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        curHP -= damage;
-        if (curHP == 0)
+        if (!invincible)
+            curHP -= damage;
+        if (curHP <= 0)
         {
             Die();
         }

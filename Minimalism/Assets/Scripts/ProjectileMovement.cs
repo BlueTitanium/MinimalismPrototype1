@@ -14,7 +14,7 @@ public class ProjectileMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("PlayerNecessities/Player").GetComponent<Transform>();
+        player = GameObject.Find("PlayerNecessities/Player/GameObject/Body").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -41,6 +41,7 @@ public class ProjectileMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") )
         {
             //player.TakeDamage(10);
+            GameObject.FindObjectOfType<PlayerController>().TakeDamage(1f);
             print("pewpewpew");
             Destroy(gameObject);
         }

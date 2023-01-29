@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 8315861276336346877}
   m_Layer: 0
   m_Name: Crossguard
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 8315861276429942825}
   m_Layer: 0
   m_Name: Ranges
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 8315861276516726245}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   ranges: {fileID: 8315861276429942838}
   outerRange: {fileID: 8315861277402951973}
   outerRangeController: {fileID: 8315861277402952025}
-  outerSize: 20.01
+  outerSize: 7
   enemyInOuterRange: 0
   rangeDecrement: 0.5
   rangeIncrement: 1
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 8315861276920443612}
   m_Layer: 0
   m_Name: SwordObject
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,7 +527,7 @@ Transform:
   m_GameObject: {fileID: 8315861277402951973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 17.5, y: 17.5, z: 17.5}
+  m_LocalScale: {x: 7.0000005, y: 7.0000005, z: 7.0000005}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8315861276429942825}
@@ -783,7 +783,7 @@ Transform:
   m_GameObject: {fileID: 8315861277431350042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.59, y: 2.59, z: 2.59}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8315861276429942825}
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 8315861277764699465}
   m_Layer: 0
   m_Name: Blade
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1113,7 +1113,7 @@ GameObject:
   - component: {fileID: 8315861278209077323}
   m_Layer: 0
   m_Name: Sheath
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 8315861278305725140}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 8315861278445718642}
   m_Layer: 0
   m_Name: Hilt
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

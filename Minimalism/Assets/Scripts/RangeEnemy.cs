@@ -17,6 +17,7 @@ public class RangeEnemy : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        player = GameObject.Find("PlayerNecessities/Player/GameObject/Body").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -48,6 +49,13 @@ public class RangeEnemy : MonoBehaviour
             shootProjectile();
         }
         else {
+            attack = false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "OuterRange")
+        {
             attack = false;
         }
     }
