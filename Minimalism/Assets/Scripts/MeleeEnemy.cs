@@ -41,9 +41,10 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") )
         {
-            //player.TakeDamage(10);
-            GameObject.FindObjectOfType<PlayerController>().TakeDamage(1.5f);
             print("bam");
+            Vector3 dir = -1 * (transform.position - collision.transform.position).normalized;
+            GameObject.FindObjectOfType<PlayerController>().KnockBack(dir, 5f);
+            GameObject.FindObjectOfType<PlayerController>().TakeDamage(1.5f);
             Destroy(gameObject);
         }
     }
