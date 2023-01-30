@@ -263,6 +263,7 @@ public class PlayerController : MonoBehaviour
         ball.color = new Color(.45f, 0, 0f);
         yield return new WaitForSeconds(t);
         ball.color = original;
+    }
     public void KnockBack(Vector3 dir, float speed) 
     {
         if (!invincible && !dead)
