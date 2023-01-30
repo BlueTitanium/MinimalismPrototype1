@@ -253,6 +253,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void KnockBack(Vector3 dir, float speed) 
+    {
+        if (!invincible && !dead)
+        {
+            body.AddForce(dir * speed, ForceMode2D.Impulse);
+            StartCoroutine(KnockBackTime());
+        }
+        
+    }
+
+    public IEnumerator KnockBackTime() 
+    {
+        yield return new WaitForSeconds(.5f);
+        if(body.velocity.magnitude != 0)
+        {
+            body.velocity = body.velocity * 0.90f * Time.deltaTime;
+        }
+        //body.velocity = Vector3.zero;
+    }
+
     public IEnumerator Die()
     {
         GameManager.gm.paused = true;
@@ -297,4 +317,5 @@ public class PlayerController : MonoBehaviour
         innerRange.transform.localScale = new Vector3(innerSize, innerSize);
         outerRange.transform.localScale = new Vector3(outerSize, outerSize);
     }
+
 }
