@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float maxHP;
     public float curHP;
     public Image hpBar;
+    public SpriteRenderer ball;
+    private Color original;
 
     public bool Unsheathed = false;
     private bool moving = false;
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        original = ball.color;
         curHP = maxHP;
         maxInnerSize = innerSize;
         innerRange.transform.localScale = new Vector3(innerSize, innerSize);
@@ -194,6 +197,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator moveBodyToLocation(Vector3 start, Vector3 end, float time, GameObject pointObject)
     {
+        timer = time+.05f;
         Vector3 targetPosition = end;
         Vector3 dir = targetPosition - body.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -243,6 +247,7 @@ public class PlayerController : MonoBehaviour
         if (!invincible && !dead)
         {
             CameraShake.cs.cameraShake(.1f, 2f);
+            StartCoroutine(showDamage(.1f));
             curHP -= damage;
             GameManager.gm.addScore(-500);
             StatsDisplayer.sd.showStatus("Damaged");
@@ -251,6 +256,13 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Die());
         }
+    }
+
+    public IEnumerator showDamage(float t)
+    {
+        ball.color = new Color(.45f, 0, 0f);
+        yield return new WaitForSeconds(t);
+        ball.color = original;
     }
 
     public IEnumerator Die()
