@@ -39,10 +39,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 startLine;
     private bool canRestart = false;
+    private SFXManager sm;
 
     // Start is called before the first frame update
     void Start()
     {
+        sm = SFXManager.sm;
         original = ball.color;
         curHP = maxHP;
         maxInnerSize = innerSize;
@@ -54,10 +56,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        }*/
         if (Input.GetKeyDown(KeyCode.Space) && canRestart)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -96,6 +99,7 @@ public class PlayerController : MonoBehaviour
                     }
                     sword.SetTrigger("Slash1");
                     IncreaseRange(rangeIncrement);
+                    sm.PlayClip(sm.slice);
                 }
             }
             else if (projectileInInnerRange)
@@ -121,6 +125,7 @@ public class PlayerController : MonoBehaviour
                 }
                 GameManager.gm.addScore(800);
                 StatsDisplayer.sd.showStatus("Parried");
+                sm.PlayClip(sm.block);
             }
             else
             {
@@ -157,6 +162,7 @@ public class PlayerController : MonoBehaviour
                 }
                 GameManager.gm.addScore(250);
                 StatsDisplayer.sd.showStatus("Blocked");
+                sm.PlayClip(sm.block);
             }
             DecreaseRange(rangeDecrement * Time.deltaTime);
         } else
@@ -251,6 +257,7 @@ public class PlayerController : MonoBehaviour
             curHP -= damage;
             GameManager.gm.addScore(-500);
             StatsDisplayer.sd.showStatus("Damaged");
+            sm.PlayClip(sm.damage);
         }
         if (curHP <= 0)
         {

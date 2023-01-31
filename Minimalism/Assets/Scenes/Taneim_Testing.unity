@@ -759,7 +759,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.293
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -856,6 +856,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: {fileID: 371090809}
+  block: {fileID: 8300000, guid: 7bd76645aa66cb64f98bb9eef11d47ea, type: 3}
+  slice: {fileID: 8300000, guid: 38ce74764926b354b8bf09887de109b3, type: 3}
+  damage: {fileID: 8300000, guid: fcf16397e9d167a48b03ea0f3689d667, type: 3}
 --- !u!1 &393733944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,7 +3309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: a game by Taneim miah, shenzhi tao, and regina wu
+  m_text: a game by Taneim miah and regina wu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 719701df6bcc63d48a56ede53fe828de, type: 2}
   m_sharedMaterial: {fileID: -5127160003624423464, guid: 719701df6bcc63d48a56ede53fe828de, type: 2}

@@ -26,6 +26,11 @@ public class SFXManager : MonoBehaviour
 
     public void PlayClip(AudioClip clip)
     {
-        a.PlayOneShot(clip);
+        if (clip != null)
+        {
+            a.Stop();
+            a.PlayOneShot(clip);
+        }
+            
     }
 }
