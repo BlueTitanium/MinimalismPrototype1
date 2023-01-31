@@ -53,12 +53,21 @@ public class RangeEnemy : MonoBehaviour
         rb.MovePosition((Vector2)transform.position + (dir * moveSpeed * Time.deltaTime));
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "OuterRange" )
         {
             shoot = false;
             print("collide");
+        }
+        if (collision.gameObject.CompareTag("Player") )
+        {
+            print("bamRange");
+            Vector3 dir = -1 * (transform.position - collision.transform.position).normalized;
+            GameObject.FindObjectOfType<PlayerController>().KnockBack(dir, 5f);
+            GameObject.FindObjectOfType<PlayerController>().TakeDamage(1.5f);
+            Destroy(gameObject);
         }
     }
 
