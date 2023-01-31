@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 4
   projectile: {fileID: 6302351768582624434, guid: 421e00407bd32764c923e4ad0cd8108b, type: 3}
   shootSpot: {fileID: 1054713069394905309}
 --- !u!1 &1054713069394905306
