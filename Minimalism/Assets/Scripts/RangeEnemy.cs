@@ -11,13 +11,17 @@ public class RangeEnemy : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
-    private bool attack = false;
+    private bool shoot = true; //in shooting mode
+    //private bool isShooting = false; //time to shoot projectile
+    private float shootTimer;
+    private float waitTime = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.Find("PlayerNecessities/Player/GameObject/Body").GetComponent<Transform>();
+        waitTime = waitTime/((GameManager.gm.waveNum - 1)/5 + 1);
     }
 
     // Update is called once per frame
@@ -32,12 +36,20 @@ public class RangeEnemy : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (!attack && !GameManager.gm.paused) {
+        shootTimer += Time.deltaTime;
+        if (!GameManager.gm.paused) {
             moveTowardsPlayer(movement);
+            if (shoot && shootTimer > waitTime) {
+                shootProjectile();
+                shootTimer = 0;
+            }
         }
     }
 
     void moveTowardsPlayer(Vector2 dir) {
+        if (shoot == false) {
+            moveSpeed = 5f;
+        }
         rb.MovePosition((Vector2)transform.position + (dir * moveSpeed * Time.deltaTime));
     }
 
@@ -45,23 +57,14 @@ public class RangeEnemy : MonoBehaviour
     {
         if (collision.gameObject.name == "OuterRange" )
         {
-            attack = true;
-            shootProjectile();
-        }
-        else {
-            attack = false;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "OuterRange")
-        {
-            attack = false;
+            shoot = false;
+            print("collide");
         }
     }
 
-    // creat the projectile
+    //create the projectile
     void shootProjectile() {
         Instantiate(projectile, shootSpot.position, transform.rotation);
+        print("shoot");
     }
 }
